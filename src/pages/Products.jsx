@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import axios from "axios";
+import API from "../intercept";
 import { API_BASE } from "../config";
 
 const Products = () => {
@@ -9,7 +9,7 @@ const Products = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`${API_BASE}/products`)
+    API.get("/products")
       .then(res => setProducts(res.data))
       .catch(err => {
         console.error("Failed to fetch products:", err);

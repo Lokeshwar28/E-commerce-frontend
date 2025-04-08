@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import API from "../intercept";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { API_BASE } from "../config";
@@ -19,7 +19,7 @@ const Login = () => {
     setError("");
   
     try {
-      const res = await axios.post(`${API_BASE}/auth/login`, form);
+        const res = await API.post("/auth/login", form); // No need for API_BASE if axios already has baseURL;
   
       if (res.data.token) {
         console.log("Login response:", res.data);  // Log the response

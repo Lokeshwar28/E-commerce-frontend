@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../intercept";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { API_BASE } from "../config";
+
 
 const Admin = () => {
   const [products, setProducts] = useState([]);
@@ -18,7 +19,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`${API_BASE}/products`);
+        const res = await API.get(`${API_BASE}/products`);
         setProducts(res.data);
       } catch (error) {
         console.error("Error fetching products", error);
@@ -42,12 +43,12 @@ const Admin = () => {
       const token = localStorage.getItem("token");
 
       if (isEditing) {
-        await axios.put(`${API_BASE}/products/${editProductId}`, form, {
+        await API.put(`${API_BASE}/products/${editProductId}`, form, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Product updated successfully!");
       } else {
-        await axios.post(`${API_BASE}/products`, form, {
+        await API.post(`${API_BASE}/products`, form, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Product added successfully!");
@@ -57,7 +58,7 @@ const Admin = () => {
       setIsEditing(false);
       setEditProductId(null);
 
-      const res = await axios.get(`${API_BASE}/products`);
+      const res = await API.get(`${API_BASE}/products`);
       setProducts(res.data);
     } catch (error) {
       console.error("Error saving product", error);
@@ -72,7 +73,7 @@ const Admin = () => {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${API_BASE}/products/${id}`, {
+      await API.delete(`${API_BASE}/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
