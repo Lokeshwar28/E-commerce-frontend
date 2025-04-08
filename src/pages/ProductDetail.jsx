@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../intercept";
 import { useCart } from "../context/CartContext";
 import { API_BASE } from "../config";
 
@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`${API_BASE}/products/${id}`)
+    API.get(`${API_BASE}/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error("Product not found:", err));
   }, [id]);
@@ -28,15 +28,15 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen bg-black text-white px-4 py-10">
-      <div className="max-w-2xl mx-auto p-6 bg-gray-800 rounded shadow">
-        <img src={product.image_url} alt={product.name} className="w-full h-64 sm:h-80 object-cover rounded" />
-        <h2 className="text-3xl font-bold mt-4">{product.name}</h2>
-        <p className="text-gray-300 mt-2">${Number(product.price).toFixed(2)}</p>
-        <p className="text-gray-400 mt-4">{product.description}</p>
+    <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 text-black px-4 py-10">
+      <div className="max-w-2xl mx-auto p-6 bg-white/90 text-gray-900 rounded-lg border border-gray-200 shadow-xl">
+        <img src={product.image_url} alt={product.name} className="w-full aspect-square object-cover rounded-lg border border-gray-200 shadow-sm" />
+        <h2 className="text-4xl font-bold mt-4 text-gray-800">{product.name}</h2>
+        <p className="text-2xl font-semibold mt-2 text-emerald-400">${Number(product.price).toFixed(2)}</p>
+        <p className="text-gray-600 mt-4 leading-relaxed">{product.description}</p>
         <button
           onClick={handleAddToCart}
-          className="mt-6 bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2"
+          className="mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-3 rounded-full text-white hover:scale-105 hover:brightness-110 transition transform duration-200 shadow-lg"
         >
           🛒 Add to Cart
         </button>

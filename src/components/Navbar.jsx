@@ -12,8 +12,10 @@ const Navbar = () => {
   const navLink = (to, label) => (
     <Link
       to={to}
-      className={`px-3 py-2 rounded hover:bg-gray-700 ${
-        location.pathname === to ? "bg-gray-700 text-blue-400" : "text-white"
+      className={`px-3 py-2 rounded transition duration-200 ${
+        location.pathname === to
+          ? "bg-gray-700 text-blue-400"
+          : "text-white hover:bg-gray-800 hover:text-blue-300"
       }`}
     >
       {label}
@@ -41,14 +43,21 @@ const Navbar = () => {
         <div className="hidden sm:flex gap-2 items-center">
           {navLink("/", "Home")}
           {navLink("/products", "Products")}
-          {navLink("/cart", `Cart (${cart.length})`)}
+          {navLink("/cart", 
+            <span className="relative">
+              Cart
+              <span className="ml-1 inline-block bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+                {cart.length}
+              </span>
+            </span>
+          )}
           {user && navLink("/orders", "Orders")}
         </div>
 
         <div className="hidden sm:flex items-center gap-3">
           {user && user.role === "admin" && (
             <Link to="/admin">
-              <button className="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700">
+              <button className="bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 shadow">
                 Admin Panel
               </button>
             </Link>
@@ -74,39 +83,48 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="sm:hidden px-4 pb-4 space-y-2">
-          {navLink("/", "Home")}
-          {navLink("/products", "Products")}
-          {navLink("/cart", `Cart (${cart.length})`)}
-          {user && navLink("/orders", "Orders")}
+      <div
+        className={`sm:hidden px-4 pb-4 space-y-2 bg-gray-900/90 backdrop-blur-md rounded-md transform transition-all duration-300 origin-top ${
+          menuOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"
+        }`}
+      >
+        {navLink("/", "Home")}
+        {navLink("/products", "Products")}
+        {navLink("/cart", 
+          <span className="relative">
+            Cart
+            <span className="ml-1 inline-block bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
+              {cart.length}
+            </span>
+          </span>
+        )}
+        {user && navLink("/orders", "Orders")}
 
-          {user && user.role === "admin" && (
-            <Link to="/admin">
-              <button className="w-full bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700">
-                Admin Panel
-              </button>
-            </Link>
-          )}
+        {user && user.role === "admin" && (
+          <Link to="/admin">
+            <button className="w-full bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 shadow">
+              Admin Panel
+            </button>
+          </Link>
+        )}
 
-          {!user ? (
-            <>
-              {navLink("/login", "Login")}
-              {navLink("/register", "Register")}
-            </>
-          ) : (
-            <>
-              <span className="block text-white">Welcome, {user.name}</span>
-              <button
-                onClick={logout}
-                className="w-full px-3 py-2 text-red-400 hover:text-red-500 text-left"
-              >
-                Logout
-              </button>
-            </>
-          )}
-        </div>
-      )}
+        {!user ? (
+          <>
+            {navLink("/login", "Login")}
+            {navLink("/register", "Register")}
+          </>
+        ) : (
+          <>
+            <span className="block text-white">Welcome, {user.name}</span>
+            <button
+              onClick={logout}
+              className="w-full px-3 py-2 text-red-400 hover:text-red-500 text-left"
+            >
+              Logout
+            </button>
+          </>
+        )}
+      </div>
     </nav>
   );
 };

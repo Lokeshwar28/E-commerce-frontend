@@ -27,9 +27,9 @@ const Register = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen bg-black text-white flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-gray-800 rounded shadow">
-        <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
+    <div className="w-screen min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center">
+      <div className="max-w-md w-full p-8 bg-white rounded-xl shadow-lg text-gray-900">
+        <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Create an Account</h2>
         {error && <p className="text-red-400 mb-2">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -38,7 +38,7 @@ const Register = () => {
             placeholder="Name"
             value={form.name}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-700 text-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -47,7 +47,7 @@ const Register = () => {
             placeholder="Email"
             value={form.email}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-700 text-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -56,10 +56,10 @@ const Register = () => {
             placeholder="Password"
             value={form.password}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-700 text-white"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
-          <button type="submit" className="w-full bg-blue-600 py-2 rounded hover:bg-blue-700">
+          <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-colors">
             Register
           </button>
         </form>

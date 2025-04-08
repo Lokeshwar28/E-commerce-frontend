@@ -39,10 +39,10 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen bg-black text-white flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-gray-800 rounded shadow">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
-        {error && <p className="text-red-400 mb-2">{error}</p>}
+    <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-fuchsia-700 to-pink-600 text-white flex items-center justify-center">
+      <div className="max-w-md w-full p-6 bg-gradient-to-br from-white via-gray-100 to-gray-200 text-gray-900 rounded-xl shadow-2xl border border-gray-300">
+        <h2 className="text-3xl font-bold mb-6 text-center text-indigo-700">Welcome Back</h2>
+        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
@@ -50,7 +50,7 @@ const Login = () => {
             placeholder="Email"
             value={form.email}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-700 text-white"
+            className="w-full p-3 rounded bg-gray-100 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
           <input
@@ -59,10 +59,10 @@ const Login = () => {
             placeholder="Password"
             value={form.password}
             onChange={handleChange}
-            className="w-full p-2 rounded bg-gray-700 text-white"
+            className="w-full p-3 rounded bg-gray-100 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
-          <button type="submit" className="w-full bg-blue-600 py-2 rounded hover:bg-blue-700">
+          <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition duration-200">
             Login
           </button>
         </form>
