@@ -1,12 +1,63 @@
-# React + Vite
+E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend of the E-commerce application built with React and Vite, styled using Tailwind CSS. It interacts with a backend API to provide a complete shopping experience.
 
-Currently, two official plugins are available:
+📊 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Product listing and detailed product view
 
-## Expanding the ESLint configuration
+Add to cart and cart management
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+User authentication (Login/Register)
+
+Order placement and order history
+
+Admin panel to manage products
+
+📚 Tech Stack
+
+React
+
+Vite
+
+Tailwind CSS
+
+Axios
+
+React Router DOM
+
+React Toastify
+
+⚖️ Environment Variables
+
+Create a .env file in the root of the frontend folder:
+
+VITE_API_BASE_URL=https://shopease.duckdns.org/api
+
+🚀 Getting Started
+
+1. Install Dependencies
+
+npm install
+
+2. Run Locally
+
+npm run dev
+
+3. Build for Production
+
+npm run build
+
+🌐 Deployment
+
+The frontend is deployed using Vercel. Push to the main branch triggers a new deployment.
+
+🛡️ Security Notes
+
+Ensure the backend API URL uses HTTPS in production. Avoid using public IPs or insecure links.
+
+📝 Notes
+
+Authentication credentials and cart data are managed via context.
+
+Axios interceptors are used for global request handling.
