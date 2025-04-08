@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { API_BASE } from "../config";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
@@ -39,6 +40,7 @@ const Login = () => {
   };
 
   return (
+
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-fuchsia-700 to-pink-600 text-white flex items-center justify-center">
       <div className="max-w-md w-full p-6 bg-gradient-to-br from-white via-gray-100 to-gray-200 text-gray-900 rounded-xl shadow-2xl border border-gray-300">
         <h2 className="text-3xl font-bold mb-6 text-center text-indigo-700">Welcome Back</h2>
@@ -68,6 +70,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+
   );
 };
 

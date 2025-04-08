@@ -3,6 +3,7 @@ import API from "../intercept";
 import { useNavigate } from "react-router-dom";
 import { API_BASE } from "../config";
 
+
 const Register = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -27,6 +28,7 @@ const Register = () => {
   };
 
   return (
+
     <div className="w-screen min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center">
       <div className="max-w-md w-full p-8 bg-white rounded-xl shadow-lg text-gray-900">
         <h2 className="text-3xl font-extrabold mb-6 text-center text-blue-700">Create an Account</h2>
@@ -65,6 +67,7 @@ const Register = () => {
         </form>
       </div>
     </div>
+
   );
 };
 

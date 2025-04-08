@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext";
 import { API_BASE } from "../config";
 
 
+
 const ProductDetail = () => {
   const { addToCart } = useCart();
   const { id } = useParams();
@@ -28,6 +29,7 @@ const ProductDetail = () => {
   };
 
   return (
+ 
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 text-black px-4 py-10">
       <div className="max-w-2xl mx-auto p-6 bg-white/90 text-gray-900 rounded-lg border border-gray-200 shadow-xl">
         <img src={product.image_url} alt={product.name} className="w-full aspect-square object-cover rounded-lg border border-gray-200 shadow-sm" />

@@ -2,6 +2,7 @@ import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { API_BASE } from "../config";
 
+
 const Cart = () => {
   const { cart, removeFromCart, incrementQuantity, decrementQuantity } = useCart();
 
@@ -10,6 +11,8 @@ const Cart = () => {
   };
 
   return (
+  
+   
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 via-blue-200 to-blue-300 text-black px-4 py-10 bg-white bg-opacity-90">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-6 text-center">Your Cart</h2>
@@ -92,6 +95,7 @@ const Cart = () => {
         )}
       </div>
     </div>
+  
   );
 };
 

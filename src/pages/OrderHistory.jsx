@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import API from "../intercept";
 import { API_BASE } from "../config";
 
+
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
 
@@ -25,6 +26,7 @@ const OrderHistory = () => {
   }, []);
 
   return (
+
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-900 via-gray-900 to-black text-white px-6 py-10">
       <div className="max-w-3xl mx-auto p-6 bg-gray-800 rounded shadow">
         <h2 className="text-2xl font-bold mb-6 text-center">Order History</h2>
@@ -51,6 +53,7 @@ const OrderHistory = () => {
         )}
       </div>
     </div>
+
   );
 };
 

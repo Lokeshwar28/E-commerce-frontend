@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import API from "../intercept";
 import ProductCard from "../components/ProductCard";
 
+
+
+
 const Home = () => {
   const [featured, setFeatured] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,10 @@ const Home = () => {
       .finally(() => setLoading(false));
   }, []);
 
+ 
+
   return (
+
     <div className="w-screen min-h-screen bg-white text-gray-900">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
@@ -74,6 +80,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

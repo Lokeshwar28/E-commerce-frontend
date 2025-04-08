@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { API_BASE } from "../config";
 import { motion } from "framer-motion";
 
+
 const Checkout = () => {
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ const Checkout = () => {
   };
 
   return (
+  
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 via-blue-200 to-blue-300 px-4 sm:px-6 lg:px-8 py-10 overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

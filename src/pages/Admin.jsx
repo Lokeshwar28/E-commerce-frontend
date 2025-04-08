@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { API_BASE } from "../config";
 import { motion } from "framer-motion";
 
+
 const Admin = () => {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({ name: "", price: "", description: "", image_url: "" });
@@ -86,6 +87,7 @@ const Admin = () => {
   };
 
   return (
+   
     <div className="w-screen min-h-screen bg-gradient-to-br from-indigo-100 via-blue-200 to-blue-300 px-4 sm:px-6 lg:px-8 py-10 text-gray-900">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
